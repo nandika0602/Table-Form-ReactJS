@@ -2,14 +2,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-//instead of id (able to use id, index, uuid generator)
-//instead of || (ternary, useState return stmt)
-//amount 4 col should have sum of amt
-//all rows amt should display at bottom
-//delete only selected rows(checkbox)
-//select all items and vice versa
-//while selecting all items, if any of the rows is unchecked at that time, the select all checkbox also have to uncheck
-
 const TableForm = () => {
   const tableHeader = [
     "FirstName",
@@ -23,7 +15,7 @@ const TableForm = () => {
     "check",
     "Action",
   ];
-  const obj = {
+  const initialState = {
     id: "",
     firstName: "",
     middleName: "",
@@ -46,7 +38,7 @@ const TableForm = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const add = () => {
-    setTableData([...tableData, { ...obj, id: new Date().getTime() }]);
+    setTableData([...tableData, { ...initialState, id: new Date().getTime() }]);
   };
 
   const deleteRow = (id) => {
